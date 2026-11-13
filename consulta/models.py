@@ -1,5 +1,7 @@
 from django.db import models
 
+from tratamento.models import Tratamento
+
 
 class Consulta(models.Model):
     data_hora_cria_agendamento = models.DateTimeField()
@@ -27,7 +29,7 @@ class Consulta(models.Model):
     # plano_saude
     # paciente
     # profissional
-    # tratamento
+    tratamento = models.ForeignKey(Tratamento, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"{self.data_hora_cria_agendamento} - R$ {self.valor_consulta} - {self.tipo_atedimento} - {self.agenda_dia_hora_inicio} - {self.agenda_dia_hora_final} - {self.agenda_status} - {self.hipotese_diagnostica} - {self.exame_fisico_pdf} - {self.diagnostico_definido} - {self.ficha_anamnese_pdf} - {self.descricao_consulta} - {self.valor_total_exame_consulta}"

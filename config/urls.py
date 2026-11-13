@@ -11,6 +11,7 @@ from consulta.views import ConsultaViewSet
 
 router = DefaultRouter()
 router.register("consultas", ConsultaViewSet, basename="consulta")
+router.register("tratamentos", ConsultaViewSet, basename="tratamento")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
